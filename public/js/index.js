@@ -15,7 +15,6 @@ socket.emit('join', params, function(err) {
 });
 
 socket.on('usersUpdated', function(user_names) {
-	console.log(user_names);
 	$('#user-list').html('');
 	user_names.forEach(function(user) {
 		$('#user-list').append(`<div class="my-1 p-2 bg-light">${user}</div>`);
@@ -23,7 +22,6 @@ socket.on('usersUpdated', function(user_names) {
 });
 
 socket.on('newMessage', function(message) {
-	console.log(message);
 	var template = $('#message-template').html();
 	Mustache.parse(template);
 	var html = Mustache.render(template, message);
@@ -32,7 +30,6 @@ socket.on('newMessage', function(message) {
 });
 
 socket.on('newLocationShareMessage', function(message) {
-	console.log(message);
 	var template = $('#message-location-template').html();
 	Mustache.parse(template);
 	var html = Mustache.render(template, message);
@@ -77,7 +74,6 @@ $('#message-form').on('submit', function(e) {
 var shareLocationBtn = $('#share-location-btn');
 shareLocationBtn.click(function(e) {
 	e.preventDefault();
-	console.log(navigator);
 	if(!navigator.geolocation) {
 		alert('Your browser does not support geolocation');
 	}

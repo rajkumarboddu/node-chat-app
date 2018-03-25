@@ -70,7 +70,6 @@
 
     	var socket = io();
     	socket.on('roomNames', function(room_names) {
-    		console.log(room_names);
     		if(room_names.length === 0) {
     			$('#toggle-room-input').trigger('click');
     		} else{
