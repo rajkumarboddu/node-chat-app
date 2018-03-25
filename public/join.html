@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Chat App</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+  </head>
+  <body>
+    <div class="container-fluid h-100">
+    	<div class="row h-100">
+            <div class="col-3 bg-secondary">
+                <h3 class="py-2 text-white" id="room-name"></h3>
+                <hr class="bg-light">
+                <div id="user-list">
+                    <!-- users list will be rendered here -->
+                </div>
+            </div>
+            <div class="col-9 h-100">
+                <div class="row" style="height: 91%;">
+                    <div class="col-12" id="messages">
+                        <!-- messages will be rendered here -->
+                    </div>
+                </div>
+                <form id="message-form">
+                    <div class="row p-2 bg-light">
+                        <div class="col-9">
+                            <input type="text" id="message" name="message" autocomplete="off" placeholder="Type your message..." class="form-control" required="required" autofocus>
+                        </div>
+                        <div class="col-1">
+                            <button class="btn btn-primary">Send</button>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-primary" id="share-location-btn">Share Location</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script id="message-template" type="x-tmpl-mustache">
+        <div class="p-2 my-2 bg-light">
+            <strong>{{from}}</strong>
+            <small class="text-muted">{{created_at}}</small>
+            <p>{{message}}</p>
+        </div>
+    </script>
+
+    <script id="message-location-template" type="x-tmpl-mustache">
+        <div class="p-2 my-2 bg-light">
+            <strong>{{from}}</strong>
+            <small class="text-muted">{{created_at}}</small>
+            <p>
+                <a href="{{message}}" target="_blank">My Location</a>
+            </p>
+        </div>
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/mustache.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.ba-bbq.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
